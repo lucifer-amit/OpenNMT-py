@@ -61,7 +61,7 @@ class AudioDataReader(DataReaderBase):
         # straightforward to rewrite the audio handling to make use of
         # up-to-date torchaudio, but in the meantime there is a legacy
         # method which uses the old defaults
-        sound, sample_rate_ = torchaudio.legacy.load(audio_path)
+        sound, sample_rate_ = torchaudio.load(audio_path)
         if self.truncate and self.truncate > 0:
             if sound.size(0) > self.truncate:
                 sound = sound[:self.truncate]
